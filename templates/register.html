@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block register %}
+    <form action="/register/" method="post" class="new_user">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br><br>
+        <input type="submit"class="register_button" value="Create Account">
+    </form>
+{% endblock %}tml>

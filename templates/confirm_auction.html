@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block confirm  %}
+    {% if user.is_authenticated and user == auction.seller %}
+        <h4> Are you sure you want to post the auction '{{ auction.title }}'?</h4>
+        <form action="/confirm_auction/" method="post">
+            {% csrf_token %}
+
+            <input id="title" type="hidden" name="title"value="{{ auction.title }}" readonly="true">
+            <input id="description" type="hidden" name="description"value="{{ auction.description }}" readonly="true">
+            <input id="deadline" type="hidden" name="deadline"value="{{ auction.deadline }}" readonly="true">
+            <input id="email" type="hidden" name="email"value="{{ auction.email }}" readonly="true">
+            <input id="price" type="hidden" name="price"value="{{ auction.price }}" readonly="true">
+            <input id="active" type="hidden" name="active"value="{{ auction.active }}" readonly="true">
+            <input id="banned" type="hidden" name="banned"value="{{ auction.banned }}" readonly="true">
+            <input id="seller" type="hidden" name="seller"value="{{ auction.seller }}" readonly="true">
+            <input id="version" type="hidden" name="version"value="{{ auction.version }}" readonly="true">
+
+            <input type="submit"class="create_button" name="saveAuction" value="Yes">
+            <input type="submit"class="create_button" name="deleteAuction" value="No">
+        </form>
+    {% endif %}
+{% endblock %}

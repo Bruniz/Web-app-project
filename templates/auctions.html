@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block auctions  %}
+    {% if auctions %}
+        {% for auction in auctions %}
+            {% if auction.active == True %}
+                {% if auction.banned == False %}
+                    <div class="auction"id="auction{{ forloop.counter }}">
+                        <a href="/show_auction/{{ auction.id }}/"><h2> {{ auction.title }}</h2></a>
+                    </div>
+                    <br>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        {% else %}
+            <h4 style="color:orangered; float:right;"> Nothing was found...</h4>
+    {% endif %}
+{% endblock %}

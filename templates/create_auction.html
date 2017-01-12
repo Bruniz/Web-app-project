@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block create_auction  %}
+    <h4>Create a new auction</h4>
+<form action="/create_auction/" method="post" class="content">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br><br>
+            <input type="submit"class="register_button" value="Create Auction">
+        </form>
+{% endblock %}

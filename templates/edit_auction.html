@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block edit_auction  %}
+{% if user == auction.seller %}
+<form action="/edit_auction/{{ auction.id }}" method="post">
+    {% csrf_token %}
+    Title: <input type="text" name="title" value="{{ auction.title }}" readonly="true"> <br>
+    <br>
+    Description: <textarea name="description" cols="50" rows="10">{{ auction.description }}</textarea><br>
+    <input type="submit" value="Save" class="register_button">
+    <input type="hidden" name="version" value="{{ auction.version }}" readonly="true">
+</form>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,147 @@
+html, body {
+    margin:0;
+    padding:0;
+    height:100%;
+}
+.base {
+
+    background: darkgrey;
+    width:100%;
+    height:100%;
+    overflow: auto;
+}
+
+.header {
+
+    width:100%;
+    padding: 1%;
+    background: grey;
+    overflow: auto;
+    box-shadow: 0px 3px 6px rgba(0,0,0,0.5);
+
+}
+
+.content {
+    padding:1%;
+    margin-top: 1%;
+    width:100%;
+
+}
+
+.login, .register, .signout, .editprofile {
+
+    float:right;
+    padding:1em;
+}
+
+.signout_button, .signin_button, .register_button, .editprofile_button, .create_button, .bid_button, .search_button {
+
+    background-color: white;
+    border: none;
+    color: grey;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+}
+.signout_button:hover,.signin_button:hover, .register_button:hover, .editprofile_button:hover, .create_button:hover,
+.bid_button:hover, .search_button:hover{
+
+    background-color: orange;
+    color:white;
+}
+
+.userinfo {
+
+    color:orange;
+    text-shadow: -1px -1px black;
+    font-size: 15pt;
+    float:right;
+    padding:1em;
+}
+.label {
+
+    color:white;
+    font-size: 15pt;
+}
+
+.title {
+
+    color:white;
+    text-shadow: -1px -1px black;
+    font-size: 25pt;
+    float:left;
+    text-decoration: none;
+}
+.title:hover {
+
+    color:orange;
+    opacity: 0.8;
+    text-shadow: -1px -1px black;
+    font-size: 25pt;
+    float:left;
+    text-decoration: none;
+}
+
+.new_user {
+
+    margin:3%;
+}
+
+.create_auction {
+    padding:1%;
+    display:inline-block;
+
+}
+.white_text {
+
+    color: white;
+    text-decoration: none;
+}
+#auction1 {
+    margin-top:2%;
+    border: dashed;
+    padding:1%;
+    border-color: white;
+}
+.auction {
+    border: dashed;
+    padding:1%;
+    border-color: white;
+}
+h3, h4, h2, a{
+    color:white;
+    text-decoration: none;
+}
+a:hover {
+    color:orange;
+}
+.new_and_search {
+    overflow: auto;
+    width: 100%;
+}
+
+.search_box {
+    float: right;
+    display:inline-block;
+    padding: 1%;
+}
+
+.ban_button {
+    float:right;
+    background-color: orangered;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+}
+.ban_button:hover{
+
+    background-color: red;
+    color:white;
+}

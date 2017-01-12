@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block edit_hash  %}
+    {% if auction %}
+        <form action="/edit/{{ auction.version }}" method="post">
+            {% csrf_token %}
+            Title: <input type="text" name="title" value="{{ auction.title }}" readonly="true"> <br>
+            <br>
+            Description: <textarea name="description" cols="50" rows="10">{{ auction.description }}</textarea><br>
+            <input type="submit" value="Save" class="register_button">
+            <input type="hidden" name="version" value="{{ auction.version }}" readonly="true">
+        </form>
+        {% else %}
+        <h4 style="color:orangered;">The auction was not found</h4>
+    {% endif %}
+{% endblock %}

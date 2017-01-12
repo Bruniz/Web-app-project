@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block auction  %}
+    {% if auction.active == True %}
+        {% if auction.banned == False %}
+            <div class="auction">
+                {% if user.is_superuser %}
+                    <form action="/ban_auction/{{ auction.id }}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Ban this auction" class="ban_button">
+                    </form>
+                {% endif %}
+                <h2 class="white_text">{{ auction.title }}</h2>{% if user == auction.seller %} <h4> <a href="/edit_auction/{{ auction.id }}/" class="bid_button">Edit</a> {% endif %}
+                <h3>{{ auction.description }}</h3>
+                <h5> Deadline: {{ auction.deadline }}<br>
+                    Seller: {{ auction.seller }}<br></h5>
+
+                <h3>Price: {{ auction.price }} €</h3>
+                {% if user.is_authenticated %}
+                    {% if user != auction.seller and user.username != auction.winner %}
+                        <form action="/place_bid/{{ auction.id }}" method="post">
+                            {% csrf_token %}
+                            {{ form }}
+                            <input type="hidden" name="version" value="{{ auction.version }}" readonly="true">
+                            <input id="bid_button" type="submit"class="bid_button" value="Placebid">
+                        </form>
+                    {% endif %}
+                {% endif %}
+
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}
